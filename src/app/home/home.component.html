@@ -1,0 +1,13 @@
+<h2>This is your portal/home/landing page.</h2>
+
+<ul>
+  <li *ngFor="let system of configService.systems">
+    <a [routerLink]="[system.SYSTEM_URL]">{{ system.SYSTEM_NAME }}</a>
+  </li>
+</ul>
+
+<p-button *ngIf="!authService.isAuthenticated()" (click)="authService.signIn()">Sign In</p-button>
+<p-button *ngIf="authService.isAuthenticated()" (click)="authService.signOut()">Sign Out</p-button>
+
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+<p-toast position="top-right"></p-toast>
