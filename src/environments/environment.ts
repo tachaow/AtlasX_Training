@@ -17,13 +17,13 @@ export const environment: ApplicationConfig & AxAuthenticationConfig = {
 
   // When use full secure authentication, application are required
   // the callbackUri property.
-  // fullSecureAuthentication: true,
-  // callbackUri: 'http://localhost:4200/callback',
+  fullSecureAuthentication: true,
+  callbackUri: 'http://localhost:4200/callback',
 
   // If not use full secure authentication, application are required
   // the loginUri property.
-  fullSecureAuthentication: false,
-  loginUri: 'http://localhost:4200/login'
+  // fullSecureAuthentication: false,
+  // loginUri: 'http://localhost:4200/login'
 }
 
 /*

@@ -1,0 +1,18 @@
+<div class="grid">
+  <div class="col-12 md:col-6">
+    <div class="card p-fluid">
+      <h5>{{myTitle}}</h5>
+      <div class="field">
+        <label htmlFor="name1">Latitude:</label>
+        <input pInputText id="latitude" type="text" [(ngModel)]="latitude" />
+      </div>
+      <div class="field">
+        <label htmlFor="email1">Longitude:</label>
+        <input pInputText id="logitude" type="text" [(ngModel)]="lagitude" />
+      </div>
+      <div>
+        <p-button label="Locate" (click)="sendMessage()"></p-button>
+      </div>
+    </div>
+  </div>
+</div>

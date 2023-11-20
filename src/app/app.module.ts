@@ -12,23 +12,34 @@ import { ArcgisjsapiProvider } from './gis/argisjsapi-provider'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ButtonModule } from 'primeng/button';
-import { ToastModule } from 'primeng/toast';
+import { MyappComponent } from './myapp/myapp.component';
+
+import { AppLayoutModule } from './layout/app.layout.module'
+import { LocatorModule } from './page/locator/locator.module'
+import { MapViewModule } from './page/MapView/MapView.module'
+import { GisModule } from './gis/gis.module'
+import { CommentModule } from './page/comment/comment.module'
+
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyappComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    CommentModule,
+    LocatorModule,
+    MapViewModule,
+    GisModule,
     // Required register, if application use AtlasX configuration pattern.
     // It will load configuration before application initial startup.
     AxConfigurationModule,
 
     // Required register, if application use authentication.
     AxAuthenticationModule.forRoot(environment),
-    ButtonModule,
-    ToastModule
+    AppLayoutModule,
+  
   ],
   providers: [
     // Required register, if application use AxAuthenticationModule or AxConfigurationModule.

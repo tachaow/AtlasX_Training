@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { MenuComponent } from './menu.component'
-import { CommentComponent } from '../comment/comment.component'
+import { CommentComponent } from '../page/comment/comment.component'
 import { AppURL } from '../app.url'
-import { LocatorComponent } from '../locator/locator.component'
-import { ColorFormComponent } from '../colorForm/colorForm.component'
+import { LocatorComponent } from '../page/locator/locator.component'
+import { ColorFormComponent } from '../page/colorForm/colorForm.component'
+import { DogFormComponent } from '../page/dogForm/dogForm.component'
 
 const routes: Routes = [
   {
@@ -12,18 +13,21 @@ const routes: Routes = [
     component: MenuComponent,
   },
   {
+    path: AppURL.ColorForm,
+    component: ColorFormComponent,
+  },
+  {
+    path: AppURL.DogForm,
+    component: DogFormComponent,
+  },
+  {
     path: AppURL.Comment,
-    component: CommentComponent
+    component: CommentComponent,
   },
   {
     path: AppURL.Locator,
-    component: LocatorComponent
+    component: LocatorComponent,
   },
-  {
-    path: AppURL.ColorForm,
-    component: ColorFormComponent
-  }
-
 ]
 
 @NgModule({
@@ -31,4 +35,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class MenuRoutingModule {}
-

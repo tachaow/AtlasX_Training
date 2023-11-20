@@ -6,8 +6,5 @@
   </li>
 </ul>
 
-<p-button *ngIf="!authService.isAuthenticated()" (click)="authService.signIn()">Sign In</p-button>
-<p-button *ngIf="authService.isAuthenticated()" (click)="authService.signOut()">Sign Out</p-button>
-
-<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
-<p-toast position="top-right"></p-toast>
+<button *ngIf="!authService.isAuthenticated()" (click)="authService.signIn()">Sign In</button>
+<button *ngIf="authService.isAuthenticated()" (click)="authService.signOut()">Sign Out</button>

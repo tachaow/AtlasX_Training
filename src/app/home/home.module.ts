@@ -6,16 +6,9 @@ import { CallbackComponent } from './callback/callback.component'
 import { HomeRoutingModule } from './home-routing.module'
 import { HomeComponent } from './home.component'
 import { LoginComponent } from './login/login.component'
-import { ButtonModule } from 'primeng/button'
-import { ConfirmDialogModule } from 'primeng/confirmdialog'
-import { ToastModule } from 'primeng/toast'
-
-import { ConfirmationService } from 'primeng/api'
-import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [HomeComponent, LoginComponent, CallbackComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HomeRoutingModule, ButtonModule, ConfirmDialogModule,ToastModule],
-  providers: [ConfirmationService,MessageService],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, HomeRoutingModule],
 })
 export class HomeModule {}

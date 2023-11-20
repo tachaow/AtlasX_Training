@@ -25,9 +25,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "allowedCommonJsDependencies": [
-              "moment"
-            ],
+            "allowedCommonJsDependencies": ["moment"],
             "assets": [
               {
                 "glob": "**/*",
@@ -40,10 +38,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/@arcgis/core/assets/esri/themes/light/main.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/bootstrap4-light-purple/theme.css",
-              "node_modules/primeng/resources/primeng.min.css"
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeicons/primeicons.css"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -117,10 +114,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/@arcgis/core/assets/esri/themes/light/main.css"
-            ],
+            "styles": ["src/styles.scss", "node_modules/@arcgis/core/assets/esri/themes/light/main.css"],
             "scripts": []
           }
         },
