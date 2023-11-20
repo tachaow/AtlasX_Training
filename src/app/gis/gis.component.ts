@@ -4,6 +4,9 @@ import { ActivatedRoute } from '@angular/router'
 import MapImageLayer from '@arcgis/core/layers/MapImageLayer'
 import { AxAuthenticationService } from '@atlasx/core/authentication'
 
+import * as identify from "@arcgis/core/rest/identify";
+import IdentifyParameters from "@arcgis/core/rest/support/IdentifyParameters";
+
 import { GisService } from './gis.service'
 
 @Component({
@@ -18,7 +21,7 @@ export class GisComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     public gisService: GisService,
     public authService: AxAuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     // Get functions from system id.
@@ -36,5 +39,20 @@ export class GisComponent implements OnInit, AfterViewInit {
       id: 'AtlasXCity',
     })
     this.gisService.map.add(atlasxLayer)
+
+    this.gisService.mapView.on('click', (event) => {
+
+      const params = new IdentifyParameters()
+      params.tolerance = 1
+      params.layerIds = [3]
+      params.geometry = event.mapPoint
+      params.mapExtent = this.gisService.mapView.extent
+
+      identify
+        .identify('https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer', params)
+        .then((response: any) => {
+          console.log(response)
+        })
+    })
   }
 }

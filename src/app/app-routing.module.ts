@@ -16,19 +16,6 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
-  // {
-  //   path: 'gis',
-  //   loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
-  //   data: { systemId: 'GIS' },
-  // },
-  // {
-  //   path: 'menu',
-  //   loadChildren: () => import('./menu/menu.module').then((m) => m.MenuModule),
-  // },
-  // {
-  //   path: 'test',
-  //   component:MTestComponent,
-  // },
   {
     path: 'mypage',
     component: MyappComponent,
@@ -72,16 +59,6 @@ const routes: Routes = [
     path: 'gis',
     loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
     data: { systemId: 'GIS' },
-  },
-  {
-    path: 'gis2',
-    children: [
-      {
-        path: 'gis2', loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
-        data: { systemId: 'GIS' },
-      }
-    ]
-
   },
 ]
 
