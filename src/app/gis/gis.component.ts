@@ -40,19 +40,6 @@ export class GisComponent implements OnInit, AfterViewInit {
     })
     this.gisService.map.add(atlasxLayer)
 
-    this.gisService.mapView.on('click', (event) => {
-
-      const params = new IdentifyParameters()
-      params.tolerance = 1
-      params.layerIds = [3]
-      params.geometry = event.mapPoint
-      params.mapExtent = this.gisService.mapView.extent
-
-      identify
-        .identify('https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer', params)
-        .then((response: any) => {
-          console.log(response)
-        })
-    })
+   
   }
 }

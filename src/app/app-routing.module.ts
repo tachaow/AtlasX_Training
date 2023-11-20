@@ -57,7 +57,7 @@ const routes: Routes = [
   // },
   {
     path: 'gis',
-    loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
+    loadChildren: () => import('./gis copy/gis.module').then((m) => m.GisModule),
     data: { systemId: 'GIS' },
   },
 ]

@@ -11,14 +11,15 @@ export class LocatorComponent implements OnInit {
   public latitude: string = '';
   public logitude: string = '';
 
-  CustomPoint = {
+  CustomPoint ={
     latitude: '',
     logitude: ''
   };
 
   @Input() myTitle = 'Locate';
-  @Output() messageEvent = new EventEmitter<string>()
+  // @Output() locate = new EventEmitter<string>()
 
+  @Output() locate: EventEmitter<string> = new EventEmitter<string>()
   // message: string = "Hello Chaowalit";
   constructor() {
     // this.latitude = "two way Binding";
@@ -32,11 +33,14 @@ export class LocatorComponent implements OnInit {
     this.CustomPoint.logitude = this.logitude;
     this.CustomPoint.latitude = this.latitude;
 
+    // this.CustomPoint.({logitude:this.logitude, latitude:this.latitude})
+
     console.log(this.CustomPoint);
+    // this.locate.emit(this.CustomPoint);
   }
 
-  sendMessage() {
-    console.log();
-  }
+  // sendMessage() {
+  //   console.log();
+  // }
 
 }
