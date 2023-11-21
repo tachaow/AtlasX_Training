@@ -13,13 +13,18 @@ import IdentifyParameters from "@arcgis/core/rest/support/IdentifyParameters";
 
 import { GisService } from './gis.service'
 
+import { LocatorComponent } from '../page/locator/locator.component';
+
 @Component({
   selector: 'app-gis',
   templateUrl: './gis.component.html',
   styleUrls: ['./gis.component.scss'],
 })
 export class GisComponent implements OnInit, AfterViewInit {
+
   @ViewChild('mapDiv', { static: true }) mapDiv!: ElementRef<HTMLDivElement>
+  @ViewChild(LocatorComponent) locatorComponent
+
 
   constructor(
     private route: ActivatedRoute,
@@ -28,12 +33,18 @@ export class GisComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit() {
+    
     // Get functions from system id.
     const systemId: string = this.route.snapshot.data.systemId
     this.gisService.loadFunctions(systemId)
   }
 
   ngAfterViewInit(): void {
+
+    // this.locatorComponent.title = 'Hi Chaowalit'
+    debugger;
+    console.log('ViewChild: '+ this.locatorComponent)
+
     // Create a new map.
     this.gisService.createMap(this.mapDiv.nativeElement)
 

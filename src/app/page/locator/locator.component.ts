@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
 
-
 @Component({
   selector: 'app-locator',
   templateUrl: './locator.component.html',
@@ -8,10 +7,19 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
 })
 export class LocatorComponent implements OnInit {
 
-  public latitude: string = '';
-  public logitude: string = '';
+  latitude: string = '';
+  logitude: string = '';
 
-  CustomPoint ={
+  private strTitle: string = ''
+
+  get titleName() {
+    return this.strTitle
+  }
+  set titleName(inputTitle: string) {
+    this.strTitle = inputTitle;
+  }
+
+  CustomPoint = {
     latitude: '',
     logitude: ''
   };
@@ -29,14 +37,14 @@ export class LocatorComponent implements OnInit {
     console.log(this.CustomPoint);
   }
 
-  onLocate(){
+  onLocate() {
     this.CustomPoint.logitude = this.logitude;
     this.CustomPoint.latitude = this.latitude;
 
     // this.CustomPoint.({logitude:this.logitude, latitude:this.latitude})
 
     console.log(this.CustomPoint);
-    // this.locate.emit(this.CustomPoint);
+    this.locate.emit(this.strTitle);
   }
 
   // sendMessage() {
