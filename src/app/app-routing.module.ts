@@ -1,29 +1,34 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { AppURL } from './app.url'
-import { MyappComponent } from './myapp/myapp.component'
 import { AppLayoutComponent } from './layout/app.layout.component'
 import { ColorFormComponent } from './page/colorForm/colorForm.component'
 import { LocatorComponent } from './page/locator/locator.component'
 import { DogFormComponent } from './page/dogForm/dogForm.component'
-import { CommentComponent } from './page/comment/comment.component'
 import { MapViewComponent } from './page/MapView/MapView.component'
-import { GisComponent } from './gis/gis.component'
-
+import { MyAppComponent } from './page/myApp/myApp.component'
+import { CommentSimulatorComponent } from './page/commentSimulator/commentSimulator.component'
 
 const routes: Routes = [
+
+  // {
+  //   path:AppURL.PanMap,
+  //   component:AppLayoutComponent,
+  //   children:[{path:'',component:PanMapComponent}]
+  // },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+    path:'test',
+    component:AppLayoutComponent,
+    children:[{path:'',component:CommentSimulatorComponent}]
+  },
+  {
+    path:AppURL.BankPage,
+    component:AppLayoutComponent,
+    children:[{path:'',component:MyAppComponent}]
   },
   {
     path: 'mypage',
-    component: MyappComponent,
-  },
-  {
-    path: '',
-    component: AppLayoutComponent,
-    children: [{ path: '', component: MyappComponent }],
+    component: MyAppComponent,
   },
   {
     path: AppURL.ColorForm,
@@ -38,7 +43,7 @@ const routes: Routes = [
   {
     path: AppURL.Comment,
     component: AppLayoutComponent,
-    children: [{ path: '', component: CommentComponent }],
+    children: [{ path: '', component: CommentSimulatorComponent }],
   },
   {
     path: AppURL.Locator,
@@ -46,18 +51,33 @@ const routes: Routes = [
     children: [{ path: '', component: LocatorComponent }],
   },
   {
+    path: AppURL.MyApp,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: MyAppComponent }],
+  },
+  {
     path: AppURL.MapView,
     component: AppLayoutComponent,
     children: [{ path: '', component: MapViewComponent }]
   },
-  // {
-  //   path: AppURL.Gis,
-  //   component: AppLayoutComponent,
-  //   children: [{ path: '', component: GisComponent }]
-  // },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+  },
   {
     path: 'gis',
-    loadChildren: () => import('./gis copy/gis.module').then((m) => m.GisModule),
+    // component: AppLayoutComponent,
+    loadChildren: () => import('./gisPanMap/gis.module').then((m) => m.GisModule),
+    data: { systemId: 'GIS' },
+  },
+  {
+    path: AppURL.GisPanMap,
+    loadChildren: () => import('./gisPanMap/gis.module').then((m) => m.GisModule),
+    data: { systemId: 'GIS' },
+  },
+  {
+    path: AppURL.GisAssFour,
+    loadChildren: () => import('./gisAssFour/gis.module').then((m) => m.GisModule),
     data: { systemId: 'GIS' },
   },
 ]
@@ -67,3 +87,22 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
+
+
+
+// {
+//   path: '',
+//   loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
+//   data: { systemId: 'GIS' },
+// },
+// {
+//   path: '',
+//   component: GisComponent,
+//   children: [{ path: '', component: GisComponent }]
+// },
+
+// {
+//   path: AppURL.ColorForm,
+//   component: AppLayoutComponent,
+//   children: [{ path: '', redirectTo:"www.google.com" }],
+// },

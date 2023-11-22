@@ -1,54 +1,41 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
+import { CustomPoint } from './clsCustomPoint';
+
 
 @Component({
   selector: 'app-locator',
   templateUrl: './locator.component.html',
   styleUrls: ['./locator.component.css'],
+  
 })
 export class LocatorComponent implements OnInit {
 
-  latitude: string = '';
-  logitude: string = '';
-
-  private strTitle: string = ''
-
-  get titleName() {
-    return this.strTitle
-  }
-  set titleName(inputTitle: string) {
-    this.strTitle = inputTitle;
-  }
+  customPoint :CustomPoint = new CustomPoint()
 
   CustomPoint = {
     latitude: '',
     logitude: ''
   };
 
-  @Input() myTitle = 'Locate';
-  // @Output() locate = new EventEmitter<string>()
+  @Input() 
+  set coordinate(data:CustomPoint) {
+      this.customPoint = data
+  }
+  get coordinate():CustomPoint {
+      return this.customPoint
+  }
+  @Output() locate: EventEmitter<CustomPoint> = new EventEmitter<CustomPoint>();
 
-  @Output() locate: EventEmitter<string> = new EventEmitter<string>()
-  // message: string = "Hello Chaowalit";
   constructor() {
-    // this.latitude = "two way Binding";
   }
 
   ngOnInit(): void {
-    console.log(this.CustomPoint);
+    console.log(this.customPoint);
   }
 
   onLocate() {
-    this.CustomPoint.logitude = this.logitude;
-    this.CustomPoint.latitude = this.latitude;
-
-    // this.CustomPoint.({logitude:this.logitude, latitude:this.latitude})
-
-    console.log(this.CustomPoint);
-    this.locate.emit(this.strTitle);
+    this.locate.emit(this.customPoint)
+    console.log(this.customPoint)
   }
-
-  // sendMessage() {
-  //   console.log();
-  // }
 
 }

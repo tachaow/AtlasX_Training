@@ -12,26 +12,31 @@ import { ArcgisjsapiProvider } from './gis/argisjsapi-provider'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MyappComponent } from './myapp/myapp.component';
-
 import { AppLayoutModule } from './layout/app.layout.module'
-import { LocatorModule } from './page/locator/locator.module'
 import { MapViewModule } from './page/MapView/MapView.module'
 import { GisModule } from './gis/gis.module'
-import { CommentModule } from './page/comment/comment.module'
+import { HomeModule } from './home/home.module'
+import { MyAppModule } from './page/myApp/myApp.module'
+import { FormsModule } from '@angular/forms'
+import { LocatorComponent } from './page/locator/locator.component'
 
-
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { CommentSimulatorModule } from './page/commentSimulator/commentSimulator.module'
 
 @NgModule({
-  declarations: [AppComponent, MyappComponent],
+  declarations: [AppComponent,LocatorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CommentModule,
-    LocatorModule,
-    MapViewModule,
+    FormsModule,
     GisModule,
+    HomeModule,
+    MyAppModule,
+    CommentSimulatorModule,
+    
+    // PanMapModule,
     // Required register, if application use AtlasX configuration pattern.
     // It will load configuration before application initial startup.
     AxConfigurationModule,
@@ -39,6 +44,10 @@ import { CommentModule } from './page/comment/comment.module'
     // Required register, if application use authentication.
     AxAuthenticationModule.forRoot(environment),
     AppLayoutModule,
+
+    //PrimNg
+    ButtonModule,
+    InputTextModule,
   
   ],
   providers: [

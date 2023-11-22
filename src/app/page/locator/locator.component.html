@@ -1,16 +1,16 @@
 <div class="grid">
   <div class="col-12 md:col-6">
     <div class="card p-fluid">
-      <h5>{{myTitle}}</h5>
+      <h5>Locator</h5>
       <div class="field">
         <label htmlFor="name1">Latitude:</label>
-        <input pInputText id="latitude" type="text" [(ngModel)]="latitude" />
+        <input pInputText id="latitude" type="text" [(ngModel)]="customPoint.latitude" />
       </div>
       <div class="field">
         <label htmlFor="email1">Longitude:</label>
-        <input pInputText id="logitude" type="text" [(ngModel)]="logitude" />
+        <input pInputText id="logitude" type="text" [(ngModel)]="customPoint.longitude" />
       </div>
-      <div>
+      <div class="col-4">
         <p-button label="Locate" (click)="onLocate()"></p-button>
       </div>
     </div>

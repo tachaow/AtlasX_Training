@@ -10,7 +10,7 @@ import { AppURL } from '../app.url'
 export class AppMenuComponent implements OnInit {
   model: any[] = []
 
-  constructor(public layoutService: LayoutService) {}
+  constructor(public layoutService: LayoutService) { }
 
   ngOnInit() {
     this.model = [
@@ -25,7 +25,7 @@ export class AppMenuComponent implements OnInit {
               {
                 label: 'Assignment 1.1 - Background Color ',
                 icon: 'pi pi-fw pi-file-edit',
-                routerLink: ['/colorForm'],
+                routerLink: ['/' +AppURL.ColorForm],
               },
               { label: 'Assignment 1.2 - Dog Form', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.DogForm] },
               {
@@ -45,9 +45,13 @@ export class AppMenuComponent implements OnInit {
           {
             label: 'แบบฝึกหัดที่ 3',
             icon: 'pi pi-pencil',
-            items: [{ label: 'Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.Gis] }],
+            items: [{ label: 'Pan Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.Gis] }],
           },
-          { label: 'แบบฝึกหัดที่ 4', icon: 'pi pi-pencil' },
+          { 
+            label: 'แบบฝึกหัดที่ 4', 
+          icon: 'pi pi-pencil',
+            items:[{ label: 'Popup Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.Gis] }]
+        },
         ],
       },
       {

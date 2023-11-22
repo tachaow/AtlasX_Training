@@ -42,7 +42,7 @@ export class GisComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
 
     // this.locatorComponent.title = 'Hi Chaowalit'
-    debugger;
+   
     console.log('ViewChild: '+ this.locatorComponent)
 
     // Create a new map.
@@ -60,64 +60,64 @@ export class GisComponent implements OnInit, AfterViewInit {
 
     this.gisService.mapView.on('click', (event) => {
 
-      // console.log(event);
+      console.log(event);
 
-      // const point = new Point({
-      //   longitude: 100,
-      //   latitude: 13,
-      // });
+      const point = new Point({
+        longitude: 100,
+        latitude: 13,
+      });
 
-      // this.gisService.mapView.graphics.removeAll();
+      this.gisService.mapView.graphics.removeAll();
 
-      // this.gisService.mapView.goTo([event.mapPoint.longitude, event.mapPoint.latitude])
+      this.gisService.mapView.goTo([event.mapPoint.longitude, event.mapPoint.latitude])
 
-      // const marker = new SimpleMarkerSymbol({
-      //   color: [225, 128, 0],
-      //   outline: {
-      //     color: [255, 255, 255],
-      //     width: 1,
-      //   }
-      // })
+      const marker = new SimpleMarkerSymbol({
+        color: [225, 128, 0],
+        outline: {
+          color: [255, 255, 255],
+          width: 1,
+        }
+      })
 
-      // const pointGraphic = new Graphic({
-      //   geometry: event.mapPoint,
-      //   symbol: marker
-      // })
+      const pointGraphic = new Graphic({
+        geometry: event.mapPoint,
+        symbol: marker
+      })
 
-      // this.gisService.mapView.graphics.add(pointGraphic)
+      this.gisService.mapView.graphics.add(pointGraphic)
 
-      const params = new IdentifyParameters()
-      params.tolerance = 1
-      params.layerIds = [3]
-      params.geometry = event.mapPoint
-      params.mapExtent = this.gisService.mapView.extent
-      params.returnGeometry = true
+      // const params = new IdentifyParameters()
+      // params.tolerance = 1
+      // params.layerIds = [3]
+      // params.geometry = event.mapPoint
+      // params.mapExtent = this.gisService.mapView.extent
+      // params.returnGeometry = true
 
-      identify
-        .identify('https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer', params)
-        .then((response: any) => {
+      // identify
+      //   .identify('https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer', params)
+      //   .then((response: any) => {
 
-          console.log('myReponse: ',response);
-          console.log('results: ',response.results[0].feature);
+      //     console.log('myReponse: ',response);
+      //     console.log('results: ',response.results[0].feature);
 
-          let feature = response.results[0].feature;
+      //     let feature = response.results[0].feature;
 
-          //Build popup template
-          console.log('STATE_NAME'+feature.attributes.STATE_NAME);
-          console.log('STATE_NAME'+feature.attributes.Shape_Area);
+      //     //Build popup template
+      //     console.log('STATE_NAME'+feature.attributes.STATE_NAME);
+      //     console.log('STATE_NAME'+feature.attributes.Shape_Area);
 
-          feature.popupTemplate = {
-            title: feature.attributes.STATE_NAME,
-            content: "<p>Area: " + feature.attributes.Shape_Area + "</p>"
-          }
+      //     feature.popupTemplate = {
+      //       title: feature.attributes.STATE_NAME,
+      //       content: "<p>Area: " + feature.attributes.Shape_Area + "</p>"
+      //     }
 
-          //Show popup
-          this.gisService.mapView.openPopup({
-            features: [feature],
-            location: event.mapPoint,
-          });
+      //     //Show popup
+      //     this.gisService.mapView.openPopup({
+      //       features: [feature],
+      //       location: event.mapPoint,
+      //     });
 
-        })
+      //   })
     })
   }
 }
