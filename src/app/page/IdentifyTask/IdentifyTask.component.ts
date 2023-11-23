@@ -47,6 +47,9 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
   messages!: Message[];
 
   myMarkerColor = [226, 119, 40];
+  starterLongitude= -102.79;
+  starterLatittude = 40.21;
+
   stateOutline!: Graphic;
   constructor(public gisService: GisService) { }
 
@@ -60,12 +63,13 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
       basemap: 'topo-vector',
     });
 
+    
     // สร้าง instance ของ MapView ซึ่งเป็นส่วนที่ใช้ render map บนหน้าเพจ
     this.mapView = new MapView({
       container: this.mapPanel.nativeElement,
       map: this.map,
-      center: [100.5408754, 13.7030248], // [longitude, latitude]
-      zoom: 15, // zoom level
+      center: [this.starterLongitude, this.starterLatittude], // [longitude, latitude]
+      zoom: 5, // zoom level
     });
 
 
@@ -74,8 +78,8 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
 
     //======= จุดตัด ===========
     const point = new Point({
-      longitude: 100.5408754,
-      latitude: 13.7030248,
+      longitude: this.starterLongitude,
+      latitude: this.starterLatittude,
     });
 
     //========= กำหนดค่าสัญลักษณ์ ===========
@@ -96,74 +100,12 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
     //================= สร้างในแผนที่
     this.mapView.graphics.add(pointGraphic);
 
+    // Click Function.
+    this.mapView.on('click', (event) => { console.log(event) });
+
   }
-  // ngOnInit() {
-
-  //   const layer = new MapImageLayer({
-  //     url: 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer',
-  //   });
-
-  //   // สร้าง instance ของ Map โดยเราสามารถกำหนด basemap รวมถึงเพิ่ม layer ต่างๆ ได้ที่ตรงนี้
-  //   this.map = new Map({
-  //     basemap: 'topo-vector',
-  //   });
-  //   // สร้าง instance ของ MapView ซึ่งเป็นส่วนที่ใช้ render map บนหน้าเพจ
-  //   this.mapView = new MapView({
-  //     container: this.mapPanel.nativeElement,
-  //     map: this.map,
-  //     center: [100.5408754, 13.7030248], // [longitude, latitude]
-  //     zoom: 15, // zoom level
-  //   });
-
-  //   const point = new Point({
-  //     longitude: 100.5408754,
-  //     latitude: 13.7030248,
-  //   });
-
-  //   const marker = new SimpleMarkerSymbol({
-  //     color: this.myMarkerColor,
-  //     outline: {
-  //       color: [255, 255, 255],
-  //       width: 2,
-  //     },
-  //   });
-
-  //   const pointGraphic = new Graphic({
-  //     geometry: point,
-  //     symbol: marker,
-  //   });
-
-  //   this.mapView.graphics.add(pointGraphic);
-
-
-  //   this.map.add(layer);
-
-  //   this.mapView.popupEnabled = false;
-
-  //   this.mapView.graphics.removeAll();
-  //   // this.mapView.graphics.remove(graphic);
-  //   this.mapView.graphics.add(pointGraphic);
-
-  //   // Click Function.
-  //   this.mapView.on('click', (event) => {
-
-  //     console.log(event)
-
-  //     // this.coreIdentify(event);
-
-  //   });
-  // }
-
 
   ngAfterViewInit(): void {
-
-
-    // this.locatorComponent.title = 'Hi Chaowalit'
-
-    // console.log('ViewChild: '+ this.locatorComponent)
-
-    // Create a new map.
-    // this.gisService.createMap(this.mapDiv.nativeElement)
 
     /*** For test only ***/
     const identifyURL = 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer';
@@ -178,31 +120,6 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
     this.mapView.on('click', (event) => {
 
       console.log('ngAfterViewInit ' + event);
-
-      // const point = new Point({
-      //   longitude: 100,
-      //   latitude: 13,
-      // });
-
-      // this.gisService.mapView.graphics.removeAll();
-
-      // this.gisService.mapView.goTo([event.mapPoint.longitude, event.mapPoint.latitude])
-
-      // const marker = new SimpleMarkerSymbol({
-      //   color: [225, 128, 0],
-      //   outline: {
-      //     color: [255, 255, 255],
-      //     width: 1,
-      //   }
-      // })
-
-      // const pointGraphic = new Graphic({
-      //   geometry: event.mapPoint,
-      //   symbol: marker
-      // })
-
-      // this.gisService.mapView.graphics.add(pointGraphic)
-
 
       const params = new IdentifyParameters()
       params.tolerance = 1
@@ -224,10 +141,17 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
           console.log('STATE_NAME :' + feature.attributes.STATE_NAME);
           console.log('Shape_Area :' + feature.attributes.Shape_Area);
 
+          // feature.popupTemplate = {
+          //   title: feature.attributes.STATE_NAME,
+          //   content: "<p>Area: " + feature.attributes.Shape_Area + "</p>"
+          // }
+
           feature.popupTemplate = {
-            title: feature.attributes.STATE_NAME,
-            content: "<p>Area: " + feature.attributes.Shape_Area + "</p>"
-          }
+            title: "{STATE_NAME}",
+            content:
+              "<b>Population (2007):</b> {POP2007}" +
+              "<br><b>Area:</b> {Shape_Area}"
+          };
 
 
           //Show popup
