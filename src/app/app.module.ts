@@ -20,12 +20,14 @@ import { MyAppModule } from './page/myApp/myApp.module'
 import { FormsModule } from '@angular/forms'
 import { LocatorComponent } from './page/locator/locator.component'
 
+
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CommentSimulatorModule } from './page/commentSimulator/commentSimulator.module'
+import { PanMapComponent } from './page/panMap/panMap.component'
 
 @NgModule({
-  declarations: [AppComponent,LocatorComponent],
+  declarations: [AppComponent,LocatorComponent,PanMapComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

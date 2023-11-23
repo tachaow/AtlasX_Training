@@ -8,6 +8,7 @@ import { DogFormComponent } from './page/dogForm/dogForm.component'
 import { MapViewComponent } from './page/MapView/MapView.component'
 import { MyAppComponent } from './page/myApp/myApp.component'
 import { CommentSimulatorComponent } from './page/commentSimulator/commentSimulator.component'
+import { PanMapComponent } from './page/panMap/panMap.component'
 
 const routes: Routes = [
 
@@ -72,8 +73,8 @@ const routes: Routes = [
   },
   {
     path: AppURL.GisPanMap,
-    loadChildren: () => import('./gisPanMap/gis.module').then((m) => m.GisModule),
-    data: { systemId: 'GIS' },
+    component:AppLayoutComponent,
+    children:[{path:'',component:PanMapComponent}]
   },
   {
     path: AppURL.GisAssFour,

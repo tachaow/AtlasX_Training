@@ -45,7 +45,7 @@ export class AppMenuComponent implements OnInit {
           {
             label: 'แบบฝึกหัดที่ 3',
             icon: 'pi pi-pencil',
-            items: [{ label: 'Pan Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.Gis] }],
+            items: [{ label: 'Pan Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.GisPanMap] }],
           },
           { 
             label: 'แบบฝึกหัดที่ 4', 
