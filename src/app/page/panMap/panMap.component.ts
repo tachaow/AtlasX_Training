@@ -31,8 +31,6 @@ export class PanMapComponent implements OnInit {
     });
   }
 
-
-
   handleLocate($event: any) { }
 
 }

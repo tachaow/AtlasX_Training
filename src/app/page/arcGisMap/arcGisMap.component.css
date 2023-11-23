@@ -1,0 +1,20 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+app-locator {
+    position: absolute;
+    top: 175px;
+    right: 55px;
+    /* width: 500px; */
+}
+
+/* .locator-position {
+    flex: 0 0 auto;
+    padding: 0.5rem;
+    width: 100%;
+} */
+/* .locator-position{
+    width: 400px;
+} */

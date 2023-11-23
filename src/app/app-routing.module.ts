@@ -9,6 +9,8 @@ import { MapViewComponent } from './page/MapView/MapView.component'
 import { MyAppComponent } from './page/myApp/myApp.component'
 import { CommentSimulatorComponent } from './page/commentSimulator/commentSimulator.component'
 import { PanMapComponent } from './page/panMap/panMap.component'
+import { ForTestComponent } from './page/ForTest/ForTest.component'
+import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
 
 const routes: Routes = [
 
@@ -20,7 +22,8 @@ const routes: Routes = [
   {
     path:'test',
     component:AppLayoutComponent,
-    children:[{path:'',component:CommentSimulatorComponent}]
+    // component:ArcGisMapComponent,
+    children:[{path:'',component:ArcGisMapComponent}]
   },
   {
     path:AppURL.BankPage,
@@ -66,15 +69,9 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'gis',
-    // component: AppLayoutComponent,
-    loadChildren: () => import('./gisPanMap/gis.module').then((m) => m.GisModule),
-    data: { systemId: 'GIS' },
-  },
-  {
-    path: AppURL.GisPanMap,
+    path:AppURL.GisPanMap,
     component:AppLayoutComponent,
-    children:[{path:'',component:PanMapComponent}]
+    children:[{path:'',component:ArcGisMapComponent}]
   },
   {
     path: AppURL.GisAssFour,
@@ -88,22 +85,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
-
-
-
-// {
-//   path: '',
-//   loadChildren: () => import('./gis/gis.module').then((m) => m.GisModule),
-//   data: { systemId: 'GIS' },
-// },
-// {
-//   path: '',
-//   component: GisComponent,
-//   children: [{ path: '', component: GisComponent }]
-// },
-
-// {
-//   path: AppURL.ColorForm,
-//   component: AppLayoutComponent,
-//   children: [{ path: '', redirectTo:"www.google.com" }],
-// },

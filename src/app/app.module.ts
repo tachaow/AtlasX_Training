@@ -13,21 +13,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppLayoutModule } from './layout/app.layout.module'
-import { MapViewModule } from './page/MapView/MapView.module'
 import { GisModule } from './gis/gis.module'
 import { HomeModule } from './home/home.module'
 import { MyAppModule } from './page/myApp/myApp.module'
 import { FormsModule } from '@angular/forms'
 import { LocatorComponent } from './page/locator/locator.component'
-
+import { CommentSimulatorModule } from './page/commentSimulator/commentSimulator.module'
+import { PanMapComponent } from './page/panMap/panMap.component'
+import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
 
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { CommentSimulatorModule } from './page/commentSimulator/commentSimulator.module'
-import { PanMapComponent } from './page/panMap/panMap.component'
+import { AccordionModule } from 'primeng/accordion';
+
 
 @NgModule({
-  declarations: [AppComponent,LocatorComponent,PanMapComponent],
+  declarations: [
+    AppComponent,
+    LocatorComponent,
+    PanMapComponent,
+    ArcGisMapComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +43,8 @@ import { PanMapComponent } from './page/panMap/panMap.component'
     HomeModule,
     MyAppModule,
     CommentSimulatorModule,
-    
+
+
     // PanMapModule,
     // Required register, if application use AtlasX configuration pattern.
     // It will load configuration before application initial startup.
@@ -50,7 +57,8 @@ import { PanMapComponent } from './page/panMap/panMap.component'
     //PrimNg
     ButtonModule,
     InputTextModule,
-  
+    AccordionModule,
+
   ],
   providers: [
     // Required register, if application use AxAuthenticationModule or AxConfigurationModule.
@@ -61,4 +69,4 @@ import { PanMapComponent } from './page/panMap/panMap.component'
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
