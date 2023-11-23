@@ -1,30 +1,49 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
-import { CustomPoint } from './clsCustomPoint';
+// import { CustomPoint } from './clsCustomPoint';
 
 
 @Component({
   selector: 'app-locator',
   templateUrl: './locator.component.html',
   styleUrls: ['./locator.component.css'],
-  
+
 })
 export class LocatorComponent implements OnInit {
 
-  customPoint :CustomPoint = new CustomPoint()
+  // customPoint :CustomPoint = new CustomPoint()
 
-  CustomPoint = {
+
+  customPoint = {
     latitude: '',
-    logitude: ''
+    longitude: ''
   };
 
-  @Input() 
-  set coordinate(data:CustomPoint) {
-      this.customPoint = data
+  mytest: string;
+
+  // @Input() 
+  // set testMsg(value: any) {
+  //   this.mytest = value;
+  // }
+  @Input()
+  set msgTest(value: any) {
+    this.mytest = value;
   }
-  get coordinate():CustomPoint {
-      return this.customPoint
+  get msgTest():any{
+    return this.mytest;
   }
-  @Output() locate: EventEmitter<CustomPoint> = new EventEmitter<CustomPoint>();
+
+
+  @Input()
+  set coordinate(data: any) {
+    debugger;
+    this.customPoint = data
+  }
+  get coordinate(): any {
+    debugger;
+    return this.customPoint
+  }
+
+  @Output() locate: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
   }
@@ -35,7 +54,7 @@ export class LocatorComponent implements OnInit {
 
   onLocate() {
     this.locate.emit(this.customPoint)
-    console.log(this.customPoint)
+    console.log('onLocat: ' + this.customPoint)
   }
 
 }

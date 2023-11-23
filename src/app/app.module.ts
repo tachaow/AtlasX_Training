@@ -25,6 +25,7 @@ import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { AccordionModule } from 'primeng/accordion';
+import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AccordionModule } from 'primeng/accordion';
     LocatorComponent,
     PanMapComponent,
     ArcGisMapComponent,
+    IdentifyTaskComponent,
   ],
   imports: [
     BrowserModule,

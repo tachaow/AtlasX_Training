@@ -10,5 +10,6 @@ export const AppURL = {
   GisPanMap: 'gisPanMap',
   GisAssFour: 'gisAssFour',
   MyApp:'myapp',
-  PanMap:'panMap'
+  PanMap:'panMap',
+  IdentifyTask: 'identifyTask'
 }

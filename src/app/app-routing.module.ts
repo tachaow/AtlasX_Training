@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { Component, NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { AppURL } from './app.url'
 import { AppLayoutComponent } from './layout/app.layout.component'
@@ -11,6 +11,8 @@ import { CommentSimulatorComponent } from './page/commentSimulator/commentSimula
 import { PanMapComponent } from './page/panMap/panMap.component'
 import { ForTestComponent } from './page/ForTest/ForTest.component'
 import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
+import { compareByFieldSpecs } from '@fullcalendar/core/internal'
+import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
 
 const routes: Routes = [
 
@@ -78,6 +80,11 @@ const routes: Routes = [
     loadChildren: () => import('./gisAssFour/gis.module').then((m) => m.GisModule),
     data: { systemId: 'GIS' },
   },
+  {
+    path: AppURL.IdentifyTask,
+    component:IdentifyTaskComponent,
+    // children:[{path:'',component:IdentifyTaskComponent}]
+  }
 ]
 
 @NgModule({

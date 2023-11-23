@@ -74,35 +74,6 @@ export class ArcGisMapComponent implements OnInit {
 
     this.mapView.on('click', (event) => {
       console.log(event)
-
-      // // Get the coordinates of the click on the view
-      // // around the decimals to 3 decimals
-      // const lat = Math.round(event.mapPoint.latitude * 1000) / 1000;
-      // const lon = Math.round(event.mapPoint.longitude * 1000) / 1000;
-
-      // this.mapView.openPopup({
-      //   // Set the popup's title to the coordinates of the clicked location
-      //   title: "Reverse geocode: [" + lon + ", " + lat + "]",
-      //   location: event.mapPoint // Set the location of the popup to the clicked location
-      // });
-
-
-      // const params = {
-      //   location: event.mapPoint
-      // };
-
-      // Execute a reverse geocode using the clicked location
-      // locator
-      //   .locationToAddress(locatorUrl, params)
-      //   .then((response) => {
-      //     // If an address is successfully found, show it in the popup's content
-      //     view.popup.content = response.address;
-      //   })
-      //   .catch(() => {
-      //     // If the promise fails and no result is found, show a generic message
-      //     view.popup.content = "No address was found for this location";
-      //   });
-
     });
 
   }
