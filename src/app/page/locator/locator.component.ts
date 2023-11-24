@@ -1,4 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
+import { Component, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@angular/core'
+import { CustomPoint } from './clsCustomPoint';
+import { cu } from '@fullcalendar/core/internal-common';
 // import { CustomPoint } from './clsCustomPoint';
 
 
@@ -8,15 +10,15 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core'
   styleUrls: ['./locator.component.css'],
 
 })
-export class LocatorComponent implements OnInit {
+export class LocatorComponent implements OnInit, AfterViewInit {
 
-  // customPoint :CustomPoint = new CustomPoint()
+  customPoint: CustomPoint = new CustomPoint()
 
 
-  customPoint = {
-    latitude: '',
-    longitude: ''
-  };
+  // customPoint = {
+  //   latitude: '',
+  //   longitude: ''
+  // };
 
   mytest: string;
 
@@ -28,18 +30,17 @@ export class LocatorComponent implements OnInit {
   set msgTest(value: any) {
     this.mytest = value;
   }
-  get msgTest():any{
+  get msgTest(): any {
     return this.mytest;
   }
 
 
   @Input()
-  set coordinate(data: any) {
-    debugger;
+  set coordinate(data: CustomPoint) {
     this.customPoint = data
   }
-  get coordinate(): any {
-    debugger;
+  get coordinate(): CustomPoint {
+
     return this.customPoint
   }
 
@@ -48,13 +49,27 @@ export class LocatorComponent implements OnInit {
   constructor() {
   }
 
+
   ngOnInit(): void {
-    console.log(this.customPoint);
+    // console.log('ngOnInit custmPoint :' + this.customPoint);
+    console.log('ngOnInit customPoint_latitude :' + this.customPoint.latitude);
+    console.log('ngOnInit customPoint_longitude :' + this.customPoint.longitude);
+    console.log('ngOnInit coordinate :' + this.customPoint);
+
+    // this.customPoint.latitude = 40.21;
+    // this.customPoint.longitude = -102.79;
   }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit customPoint_latitude :' + this.customPoint.latitude);
+    console.log('ngAfterViewInit customPoint_longitude :' + this.customPoint.longitude);
+    console.log('ngAfterViewInit coordinate :' + this.customPoint);
+  }
+
 
   onLocate() {
     this.locate.emit(this.customPoint)
-    console.log('onLocat: ' + this.customPoint)
+    // console.log('onLocat: ' + this.customPoint)
   }
 
 }

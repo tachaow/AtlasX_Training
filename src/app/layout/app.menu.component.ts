@@ -25,7 +25,7 @@ export class AppMenuComponent implements OnInit {
               {
                 label: 'Assignment 1.1 - Background Color ',
                 icon: 'pi pi-fw pi-file-edit',
-                routerLink: ['/' +AppURL.ColorForm],
+                routerLink: ['/' + AppURL.ColorForm],
               },
               { label: 'Assignment 1.2 - Dog Form', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.DogForm] },
               {
@@ -47,11 +47,11 @@ export class AppMenuComponent implements OnInit {
             icon: 'pi pi-pencil',
             items: [{ label: 'Pan Map View', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.GisPanMap] }],
           },
-          { 
-            label: 'แบบฝึกหัดที่ 4', 
-          icon: 'pi pi-pencil',
-            items:[{ label: 'Identify Task', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.IdentifyTask] }]
-        },
+          {
+            label: 'แบบฝึกหัดที่ 4',
+            icon: 'pi pi-pencil',
+            items: [{ label: 'Identify Task', icon: 'pi pi-fw pi-file-edit', routerLink: ['/' + AppURL.IdentifyTask] }]
+          },
         ],
       },
       {

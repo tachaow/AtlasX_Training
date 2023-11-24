@@ -20,7 +20,6 @@
 <!-- <div class="locator-position"> -->
 <p-accordion class="p-fluid">
   <p-accordionTab header="Locator" [selected]="true" class="line-height-3 m-0">
-    TestMessage: {{mytest}}
     <div class="field">
       <label htmlFor="name1">Latitude:</label>
       <input pInputText id="latitude" type="text" [(ngModel)]="customPoint.latitude" />
@@ -32,7 +31,6 @@
     <div class="mybtn-size">
       <p-button label="Locate" (click)="onLocate()"></p-button>
     </div>
-
   </p-accordionTab>
 </p-accordion>
 <!-- </div> -->

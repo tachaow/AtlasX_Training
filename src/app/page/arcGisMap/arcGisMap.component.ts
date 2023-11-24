@@ -43,12 +43,13 @@ export class ArcGisMapComponent implements OnInit {
       zoom: 15, // zoom level
     });
 
+
+
+
     const point = new Point({
       longitude: 100.5408754,
       latitude: 13.7030248,
     });
-
-
 
     const marker = new SimpleMarkerSymbol({
       color: this.myMarkerColor,

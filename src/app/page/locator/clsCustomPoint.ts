@@ -1,4 +1,4 @@
-// export class CustomPoint{
-//     latitude:number | null = null
-//     longitude:number | null = null
-// }
+export class CustomPoint{
+    latitude:number | null = null
+    longitude:number | null = null
+}

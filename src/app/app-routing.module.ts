@@ -16,21 +16,16 @@ import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.componen
 
 const routes: Routes = [
 
-  // {
-  //   path:AppURL.PanMap,
-  //   component:AppLayoutComponent,
-  //   children:[{path:'',component:PanMapComponent}]
-  // },
   {
-    path:'test',
-    component:AppLayoutComponent,
+    path: 'test',
+    component: AppLayoutComponent,
     // component:ArcGisMapComponent,
-    children:[{path:'',component:ArcGisMapComponent}]
+    children: [{ path: '', component: ArcGisMapComponent }]
   },
   {
-    path:AppURL.BankPage,
-    component:AppLayoutComponent,
-    children:[{path:'',component:MyAppComponent}]
+    path: AppURL.BankPage,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: MyAppComponent }]
   },
   {
     path: 'mypage',
@@ -71,9 +66,9 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-    path:AppURL.GisPanMap,
-    component:AppLayoutComponent,
-    children:[{path:'',component:ArcGisMapComponent}]
+    path: AppURL.GisPanMap,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: ArcGisMapComponent }]
   },
   {
     path: AppURL.GisAssFour,
@@ -82,8 +77,8 @@ const routes: Routes = [
   },
   {
     path: AppURL.IdentifyTask,
-    component:IdentifyTaskComponent,
-    // children:[{path:'',component:IdentifyTaskComponent}]
+    component: AppLayoutComponent,
+    children: [{ path: '', component: IdentifyTaskComponent }]
   }
 ]
 
