@@ -181,7 +181,7 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
           // };
 
           // Create a symbol for rendering the graphic
-          const fillSymbol = {
+          const pointSymbol = {
             type: "simple-fill", // autocasts as new SimpleFillSymbol()
             color: [227, 139, 79, 0.8],
             outline: {
@@ -192,14 +192,21 @@ export class IdentifyTaskComponent implements OnInit, AfterViewInit {
           };
 
           // Add the geometry and symbol to a new graphic
-          const polygonGraphic = new Graphic({
+          // const polygonGraphic = new Graphic({
+          //   geometry: feature.geometry,
+          //   symbol: fillSymbol
+          // });
+          const graphic = new Graphic({
             geometry: feature.geometry,
-            symbol: fillSymbol
+            symbol: pointSymbol,
+            attributes: {
+              name: 'San Diego'
+            }
           });
 
           // Add the graphics to the view's graphics layer
           this.mapView.graphics.removeAll();
-          this.mapView.graphics.add(polygonGraphic);
+          this.mapView.graphics.add(graphic);
 
         })
 

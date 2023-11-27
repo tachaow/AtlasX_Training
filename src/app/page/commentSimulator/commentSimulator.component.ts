@@ -19,6 +19,8 @@ export class CommentSimulatorComponent implements OnInit {
 
   submit() {
 
+    if (this.name == '' || this.comment == '') return;
+
     this.commentList.push({ name: this.name, comment: this.comment, timeStamp: new Date().toDateString() });
 
     console.log(this.commentList[0]);
@@ -27,14 +29,15 @@ export class CommentSimulatorComponent implements OnInit {
 
   }
 
-  onEdit(){
-    this.name = this.commentList[0].name;
-    this.comment = this.commentList[0].comment;
+  onEdit(index:any){
+    this.name = this.commentList[index].name;
+    this.comment = this.commentList[index].comment;
   }
 
-  onDelete(){
+  onDelete(index:any){
     this.clearForm();
-    this.commentList = [];
+    this.commentList.splice(index,1);
+    // this.commentList = [];
   }
 
   clearForm(){

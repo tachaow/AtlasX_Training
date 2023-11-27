@@ -59,7 +59,7 @@ export class AppMenuComponent implements OnInit {
         icon: 'pi pi-fw pi-book',
         items: [
           { label: 'แบบฝึกหัดที่ 1 Query Task', icon: 'pi pi-pencil', routerLink: ['/' + AppURL.QueryTask] },
-          { label: 'แบบฝึกหัดที่ 2', icon: 'pi pi-pencil' },
+          { label: 'แบบฝึกหัดที่ 2 Spatial Query', icon: 'pi pi-pencil', routerLink: ['/' + AppURL.SpatialQuery]  },
           { label: 'แบบฝึกหัดที่ 3', icon: 'pi pi-pencil' },
           { label: 'แบบฝึกหัดที่ 4', icon: 'pi pi-pencil' },
           { label: 'แบบฝึกหัดที่ 5', icon: 'pi pi-pencil' },

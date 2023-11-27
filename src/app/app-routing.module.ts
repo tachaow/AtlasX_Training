@@ -14,6 +14,7 @@ import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
 import { compareByFieldSpecs } from '@fullcalendar/core/internal'
 import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
 import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.component'
+import { SpatialQueryComponent } from './page/Intermediate/SpatialQuery/SpatialQuery.component'
 
 const routes: Routes = [
 
@@ -85,6 +86,11 @@ const routes: Routes = [
     path: AppURL.QueryTask,
     component: AppLayoutComponent,
     children: [{ path: '', component: QueryTaskComponent }]
+  },
+  {
+    path: AppURL.SpatialQuery,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: SpatialQueryComponent }]
   }
 
 ]

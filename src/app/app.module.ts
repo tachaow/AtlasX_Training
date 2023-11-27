@@ -28,6 +28,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
 import { TableModule } from 'primeng/table';
 import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.component'
+import { SpatialQueryComponent } from './page/Intermediate/SpatialQuery/SpatialQuery.component'
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.comp
     ArcGisMapComponent,
     IdentifyTaskComponent,
     QueryTaskComponent,
+    SpatialQueryComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.comp
     HomeModule,
     MyAppModule,
     CommentSimulatorModule,
+
 
 
     // PanMapModule,

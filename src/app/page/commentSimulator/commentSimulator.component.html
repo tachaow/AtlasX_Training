@@ -18,12 +18,12 @@
     <div class="card p-fluid">
       <h5>Comment</h5>
       <div class="field">
-        <div *ngFor="let item of commentList">
+        <div *ngFor="let item of commentList; index as i">
           <b>{{item.name}}</b> &nbsp; &nbsp; &nbsp; &nbsp;{{item.timeStamp}}<br>
           {{item.comment}}
           <span class="p-buttonset col-6">
-            <button pButton pRipple label="Edit" icon="pi pi-check" (click)="onEdit()"></button>
-            <button pButton pRipple label="Delete" icon="pi pi-trash" (click)="onDelete()"></button>
+            <button pButton pRipple label="Edit" icon="pi pi-check" (click)="onEdit(i)"></button>
+            <button pButton pRipple label="Delete" icon="pi pi-trash" (click)="onDelete(i)"></button>
           </span>
         </div>
 

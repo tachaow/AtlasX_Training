@@ -14,4 +14,5 @@ export const AppURL = {
   IdentifyTask: 'identifyTask',
 
   QueryTask: 'queryTask',
+  SpatialQuery: 'spatialQuery'
 }

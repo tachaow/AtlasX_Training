@@ -81,15 +81,11 @@ export class ArcGisMapComponent implements OnInit {
 
   handleLocate(event: any) {
 
-    console.log(event);
-    // console.log(event.latitude);
-    // console.log(event.longitude);
-
     //move to new position
-    this.mapView.goTo(new Point({ latitude: event.latitude, longitude: event.latitude }));
+    this.mapView.goTo(new Point({ latitude: event.latitude, longitude: event.longitude }));
 
     const pointGraphic = new Graphic({
-      geometry: new Point({ latitude: event.latitude, longitude: event.latitude }),
+      geometry: new Point({ latitude: event.latitude, longitude: event.longitude }),
       symbol: new SimpleMarkerSymbol({
         color: this.myMarkerColor,
         outline: {
