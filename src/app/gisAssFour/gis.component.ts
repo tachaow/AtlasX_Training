@@ -93,8 +93,6 @@ export class GisComponent implements OnInit, AfterViewInit {
       params.mapExtent = this.gisService.mapView.extent
       params.returnGeometry = true
 
-      debugger;
-
       identify
         .identify('https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer', params)
         .then((response: any) => {

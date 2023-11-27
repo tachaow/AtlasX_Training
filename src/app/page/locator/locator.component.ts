@@ -66,7 +66,6 @@ export class LocatorComponent implements OnInit, AfterViewInit {
     console.log('ngAfterViewInit coordinate :' + this.customPoint);
   }
 
-
   onLocate() {
     this.locate.emit(this.customPoint)
     // console.log('onLocat: ' + this.customPoint)

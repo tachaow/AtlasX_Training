@@ -1,0 +1,44 @@
+<div class="grid">
+  <div class="col-8">
+    <div class="card p-fluid">
+      <h5>Map Viewe Web Intermediate : Assignment</h5>
+      <div class="flex justify-content-center">
+        <div class="container">
+          <div #mapPanel style="width: 100%; height: 100%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5>Subheader Grouping </h5>
+      <!-- <p-table [value]="customers3" rowGroupMode="subheader" groupRowsBy="representative.name" sortField="representative.name" sortMode="single" (onSort)="onSort()" responsiveLayout="scroll" [scrollable]="true" scrollHeight="400px"> -->
+      <p-table [value]="areaDetail" [loading]="loading" responsiveLayout="scroll" [rowHover]="true"  [scrollable]="true" scrollHeight="100vh">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Subregion</th>
+            <th>State Name (Full)</th>
+            <th>State Name (Abbr.)</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer let-rowIndex="rowIndex">
+          <tr (click)="onClickRow(areaDetail[rowIndex])">
+            <td>{{areaDetail[rowIndex].attributes.sub_region}}</td>
+            <td>{{areaDetail[rowIndex].attributes.state_name}}</td>
+            <td>{{areaDetail[rowIndex].attributes.state_abbr}}</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+					<tr>
+						<td colspan="8">Area data found.</td>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="loadingbody">
+					<tr>
+						<td colspan="8">Loading Area data. Please wait.</td>
+					</tr>
+				</ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

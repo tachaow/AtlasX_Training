@@ -13,6 +13,7 @@ import { ForTestComponent } from './page/ForTest/ForTest.component'
 import { ArcGisMapComponent } from './page/arcGisMap/arcGisMap.component'
 import { compareByFieldSpecs } from '@fullcalendar/core/internal'
 import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
+import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.component'
 
 const routes: Routes = [
 
@@ -79,7 +80,13 @@ const routes: Routes = [
     path: AppURL.IdentifyTask,
     component: AppLayoutComponent,
     children: [{ path: '', component: IdentifyTaskComponent }]
+  },
+  {
+    path: AppURL.QueryTask,
+    component: AppLayoutComponent,
+    children: [{ path: '', component: QueryTaskComponent }]
   }
+
 ]
 
 @NgModule({

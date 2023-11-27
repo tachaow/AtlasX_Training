@@ -26,6 +26,8 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { AccordionModule } from 'primeng/accordion';
 import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.component'
+import { TableModule } from 'primeng/table';
+import { QueryTaskComponent } from './page/Intermediate/queryTask/queryTask.component'
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.componen
     PanMapComponent,
     ArcGisMapComponent,
     IdentifyTaskComponent,
+    QueryTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +63,7 @@ import { IdentifyTaskComponent } from './page/IdentifyTask/IdentifyTask.componen
     ButtonModule,
     InputTextModule,
     AccordionModule,
+    TableModule
 
   ],
   providers: [
